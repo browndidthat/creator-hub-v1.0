@@ -37,4 +37,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-])
+], { basename: '/creator-hub-v1.0' })
