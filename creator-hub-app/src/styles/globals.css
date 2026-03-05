@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* Dark & Luxe Color System */
+  --color-obsidian: #0a0a0b;
+  --color-onyx: #111113;
+  --color-charcoal: #1a1a1f;
+  --color-graphite: #252530;
+  --color-slate-dark: #32323f;
+  --color-muted: #6b6b80;
+  --color-soft: #9494a8;
+  --color-cream: #e8e4dc;
+  --color-ivory: #f5f2eb;
+
+  /* Gold Accent System */
+  --color-gold: #c9a84c;
+  --color-gold-light: #e2c97e;
+  --color-gold-dim: #8a7233;
+  --color-gold-glow: #c9a84c33;
+
+  /* Status Colors */
+  --color-emerald: #34d399;
+  --color-ruby: #f87171;
+  --color-sapphire: #60a5fa;
+  --color-amethyst: #a78bfa;
+  --color-amber: #fbbf24;
+
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing & Radius */
+  --radius-card: 12px;
+  --radius-button: 8px;
+  --radius-pill: 9999px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: var(--font-body);
+    background-color: var(--color-obsidian);
+    color: var(--color-cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-onyx);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-slate-dark);
+    border-radius: var(--radius-pill);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold-dim);
+  }
+}
+
+/* Utility animations */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 var(--color-gold-glow); }
+  50% { box-shadow: 0 0 20px 4px var(--color-gold-glow); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out both;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, var(--color-gold-glow), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+/* Staggered entry */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
